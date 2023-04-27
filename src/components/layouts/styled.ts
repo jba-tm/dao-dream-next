@@ -2,6 +2,7 @@
 
 
 import styled from "styled-components";
+import Image from 'next/image'
 
 export const StyledHomeWrapper = styled.div`
   background-color: var(--bg-color);
@@ -49,7 +50,7 @@ export const StyleHomeLandingSection = styled.section`
   }
 `
 
-export const StyleHomeImage = styled.image`
+export const StyleHomeImage = styled.img`
   width: 300px;
 
   @media (min-width: 1024px) {

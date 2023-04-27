@@ -263,7 +263,7 @@
       padding: 0 2rem;
 
       &__wrapper {
-        background-image: url("../../icons/connectors/mobile.png");
+        background-image: url("../../public/icons/connectors/mobile.png");
         background-repeat: no-repeat;
         background-size: 100% 530px;
         background-position: 0 35px;
@@ -284,7 +284,7 @@
         &:nth-child(1) {
           .home__roadmap__col {
             &::after {
-              background-image: url("../../icons/connectors/2.svg");
+              background-image: url("../../public/icons/connectors/2.svg");
               top: 25%;
             }
           }
@@ -293,7 +293,7 @@
         &:nth-child(2) {
           .home__roadmap__col {
             &::after {
-              background-image: url("../../icons/connectors/1.svg");
+              background-image: url("../../public/icons/connectors/1.svg");
             }
 
             &:last-child {
