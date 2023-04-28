@@ -53,6 +53,10 @@ const StyledBadge = styled.div`
 
   background: rgba(255, 255, 255, 0.2);
   border-radius: 80px; 
+  
+  &.open {
+    background-color: var(--purple-color);
+  }
 `
 
 const StyledShowMore = styled.button`
@@ -85,6 +89,22 @@ const StyledSmallText = styled.div`
     
   }
 `
+
+
+const StyledSecondaryText = styled.div`
+  /* Small text */
+
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--secondary-text-color);
+  
+`
+
+const StyledText = styled.div`
+  font-size: 38px;
+  line-height: 48px;
+`
+
 const StyledLink = styled(Link)`
   :hover {
     color: var(--purple-color)
@@ -118,6 +138,32 @@ const StyledChartCard = styled.div`
   padding: 10px;
 `
 
+const StyledFlyBird = styled.img`
+    position: absolute;
+    //top: %;
+    top: -8%;
+    right: 10%;
+    
+`
+
+const StyleVoteButton = styled.button`
+ 
+  padding: 8px 24px;
+
+  width: 120px;
+  height: 40px;
+
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 80px;
+
+  /* Inside auto layout */
+ 
+  &.checked {
+    background: #FFFFFF;
+    color: #000000;
+  }
+`
+
 const cryptoCurves = [
     {value: "UniSwap", title: "UniSwap"},
     {value: "dYdX", title: "dYdX"},
@@ -146,6 +192,7 @@ const dayChoices = [
 
 
 const Voting = () => {
+    const [checked, setChecked] = React.useState<boolean>(false)
     return (
         <div className="pt-24">
             <div className="container">
@@ -172,6 +219,14 @@ const Voting = () => {
                                     <StyledTabItem
                                         className={`p-4 inline-block hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 ${selected ? 'active' : ''}`}>
                                         System statistics
+                                    </StyledTabItem>
+                                )}
+                            </Tab>
+                            <Tab as={React.Fragment}>
+                                {({selected}) => (
+                                    <StyledTabItem
+                                        className={`p-4 inline-block hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 ${selected ? 'active' : ''}`}>
+                                        Voting - 2
                                     </StyledTabItem>
                                 )}
                             </Tab>
@@ -287,32 +342,44 @@ const Voting = () => {
                             </div>
                             <div className="mt-12 grid lg:grid-cols-2 md:grid-cols-1 lg:gap-8 md:gap-4">
                                 <StyledCard className="mb-4">
-                                    <table className="table-auto">
-                                        <thead>
-                                        <tr>
-                                            <th>Recent votes</th>
-                                            <th></th>
-                                            <th>1.82M TON</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-                                            <td>Malcolm Lockyer</td>
-                                            <td>1961</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Witchy Woman</td>
-                                            <td>The Eagles</td>
-                                            <td>1972</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Shining Star</td>
-                                            <td>Earth, Wind, and Fire</td>
-                                            <td>1975</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+                                    <div className="flex flex-col">
+                                        <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                            <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                                                <div className="overflow-hidden">
+                                                    <table className="min-w-full text-left text-sm font-light">
+                                                        <thead className="border-b font-medium dark:border-neutral-500">
+                                                        <tr>
+                                                            <th scope="col" className="px-6 py-4">#</th>
+                                                            <th scope="col" className="px-6 py-4">First</th>
+                                                            <th scope="col" className="px-6 py-4">Last</th>
+                                                            <th scope="col" className="px-6 py-4">Handle</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr className="border-b dark:border-neutral-500">
+                                                            <td className="whitespace-nowrap px-6 py-4 font-medium">1</td>
+                                                            <td className="whitespace-nowrap px-6 py-4">Mark</td>
+                                                            <td className="whitespace-nowrap px-6 py-4">Otto</td>
+                                                            <td className="whitespace-nowrap px-6 py-4">@mdo</td>
+                                                        </tr>
+                                                        <tr className="border-b dark:border-neutral-500">
+                                                            <td className="whitespace-nowrap px-6 py-4 font-medium">2</td>
+                                                            <td className="whitespace-nowrap px-6 py-4">Jacob</td>
+                                                            <td className="whitespace-nowrap px-6 py-4">Thornton</td>
+                                                            <td className="whitespace-nowrap px-6 py-4">@fat</td>
+                                                        </tr>
+                                                        <tr className="border-b dark:border-neutral-500">
+                                                            <td className="whitespace-nowrap px-6 py-4 font-medium">3</td>
+                                                            <td className="whitespace-nowrap px-6 py-4">Larry</td>
+                                                            <td className="whitespace-nowrap px-6 py-4">Wild</td>
+                                                            <td className="whitespace-nowrap px-6 py-4">@twitter</td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <StyledShowMore>
                                         Show more
                                     </StyledShowMore>
@@ -364,7 +431,26 @@ const Voting = () => {
                     </Tab.Panel>
                     <Tab.Panel>
                         <div className="container">
+                            <StyledFlyBird src="/images/bird.png"/>
 
+                            <div className="grid lg:grid-cols-4 md:grid-cols-1 my-10">
+                                <div className="my-4 mr-5">
+                                    <StyledSecondaryText>
+                                        Purchased tokens
+                                    </StyledSecondaryText>
+                                    <StyledText>
+                                        764,950,317
+                                    </StyledText>
+                                </div>
+                                <div className="my-4 mr-5">
+                                    <StyledSecondaryText>
+                                        Purchased NFT
+                                    </StyledSecondaryText>
+                                    <StyledText>
+                                        479,283
+                                    </StyledText>
+                                </div>
+                            </div>
 
                             <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-8 my-10">
                                 <StyledChartCard className=" flex flex-col gap-4">
@@ -414,6 +500,25 @@ const Voting = () => {
                                 </StyledChartCard>
                             </div>
 
+
+                            <div className="grid lg:grid-cols-4 md:grid-cols-1 my-10">
+                                <div className="my-4 mr-5">
+                                    <StyledSecondaryText>
+                                        ARP
+                                    </StyledSecondaryText>
+                                    <StyledText>
+                                        33.03%
+                                    </StyledText>
+                                </div>
+                                <div className="my-4 mr-5">
+                                    <StyledSecondaryText>
+                                        Steaking time
+                                    </StyledSecondaryText>
+                                    <StyledText>
+                                        2 month
+                                    </StyledText>
+                                </div>
+                            </div>
                             <StyledChartCard className=" flex flex-col gap-4 my-10">
                                 <div className="p-8">
                                     <div className="flex items-center justify-between flex-wrap gap-2 mb-4">
@@ -435,6 +540,33 @@ const Voting = () => {
                                     backgroundColorTop={"rgba(0, 143, 255, 1)"}
                                 />
                             </StyledChartCard>
+
+                            <div className="grid lg:grid-cols-4 md:grid-cols-1 my-10">
+                                <div className="my-4 mr-5">
+                                    <StyledSecondaryText>
+                                        Total contribution, $
+                                    </StyledSecondaryText>
+                                    <StyledText>
+                                        8,152,104.31
+                                    </StyledText>
+                                </div>
+                                <div className="my-4 mr-5">
+                                    <StyledSecondaryText>
+                                        On account, $
+                                    </StyledSecondaryText>
+                                    <StyledText>
+                                        492,682.49
+                                    </StyledText>
+                                </div>
+                                <div className="my-4 mr-5">
+                                    <StyledSecondaryText>
+                                        Annual countdown
+                                    </StyledSecondaryText>
+                                    <StyledText>
+                                        312d 17h 31m
+                                    </StyledText>
+                                </div>
+                            </div>
                             <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-8 my-10">
                                 <StyledChartCard className=" flex flex-col gap-4">
                                     <div className="p-8">
@@ -481,6 +613,158 @@ const Voting = () => {
                                     />
 
                                 </StyledChartCard>
+                            </div>
+                        </div>
+                    </Tab.Panel>
+                    <Tab.Panel>
+                        <div className="container">
+                            <div className="pt-12">
+                                <StyledBadge className=" mb-6 open">Open</StyledBadge>
+                                <h1>
+                                    Proposal of TON Tokenomics Optimization
+                                </h1>
+                                <div className="grid lg:grid-cols-5 md:grid-cols-1 mt-6">
+                                    <div className="mr-12">
+                                        <div className="mb-5">
+                                            <StyledSmallText className="secondary-text">
+                                                Start date
+                                            </StyledSmallText>
+                                            <StyledSmallText>
+                                                Mar 20, 2023 13:00 UTC
+                                            </StyledSmallText>
+                                        </div>
+                                        <div className="mt-5">
+                                            <StyledSmallText className="secondary-text">
+                                                End date
+                                            </StyledSmallText>
+                                            <StyledSmallText>
+
+                                                Mar 30, 2023 13:00 UTC
+                                            </StyledSmallText>
+                                        </div>
+                                    </div>
+                                    <div className="mr-4">
+                                        <div className="mb-5">
+                                            <StyledSmallText className="secondary-text">
+                                                Snapshot
+                                            </StyledSmallText>
+
+                                            <StyledSmallText>
+                                                Mar 21, 2023 00:00 UTC
+                                            </StyledSmallText>
+                                        </div>
+                                        <div className="mt-5">
+
+                                            <StyledSmallText className="secondary-text">
+                                                Contract
+                                            </StyledSmallText>
+
+                                            <StyledSmallText>
+                                                <StyledLink className="flex gap-1" href="#">
+                                                    <span >
+                                                    EQCVy5bE...2c5-i-GS
+
+                                                    </span>
+                                                    <span className="text-white">
+                                                    <BsArrowUpRight/>
+
+                                                    </span>
+
+                                                </StyledLink>
+                                            </StyledSmallText>
+                                        </div>
+                                    </div>
+                                    <div className="mr-4">
+                                        <div className="flex justify-start mb-5">
+                                            <div className="mr-4">
+
+                                                <StyledSmallText className="secondary-text">
+                                                    Dex
+                                                </StyledSmallText>
+                                                <ContainerDropdown choices={cryptoCurves}/>
+                                            </div>
+                                            <div className="ml-4">
+
+                                                <StyledSmallText className="secondary-text">
+                                                    Liquidity
+                                                </StyledSmallText>
+                                                <ContainerDropdown choices={cryptoCurves}/>
+
+                                            </div>
+                                        </div>
+                                        <div className="mt-5">
+                                            <StyledSmallText className="secondary-text">
+                                                Smart contract address
+                                            </StyledSmallText>
+                                            <StyledSmallText>
+                                                <StyledInput
+                                                    className="leading-tight focus:outline-none"
+                                                    type="text" placeholder="Jane Doe" aria-label="Enter address"/>
+                                                {/*<input type="email" placeholder="Enter address"/>*/}
+                                            </StyledSmallText>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="mt-24">
+                                <StyledCard>
+                                    <div className="flex flex-col">
+                                        <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                            <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                                                <div className="overflow-hidden">
+                                                    <table className="min-w-full text-left text-sm font-light p-0">
+                                                        <tbody>
+                                                        <tr className="border-b dark:border-neutral-500">
+                                                            <td className="whitespace-nowrap pr-0 py-2 font-medium">
+                                                                <div className="flex gap-4 m-0 p-0">
+                                                                    <img src="/images/coin.png" alt="" />
+
+                                                                    <div className="flex flex-col gap">
+                                                                        <p>Stake CAKE</p>
+
+                                                                        <p className="text-secondary-text">
+                                                                            Stake, Earn — And more!
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td className="whitespace-nowrap px-6 py-4">Mark</td>
+                                                            <td className="whitespace-nowrap px-6 py-4">
+                                                                <div className="flex items-center justify-between mb-2">
+                                                                    <p>
+                                                                        Yes <span className="text-secondary-text">91.75%</span>
+                                                                    </p>
+
+                                                                    <div className="flex text-secondary-text">
+                                                                        1.29K votes 1.67M TON
+                                                                    </div>
+                                                                </div>
+                                                                <StyledLoading>
+                                                                    <StyledInner/>
+                                                                </StyledLoading>
+                                                            </td>
+                                                            <td className="whitespace-nowrap px-6 py-4">
+                                                                <input id="default-checkbox" type="checkbox" value=""
+                                                                       checked={checked} onClick={()=>setChecked(!checked)}
+                                                                       className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
+
+                                                            </td>
+
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className='flex justify-center'>
+
+                                        <StyleVoteButton className={checked?'checked':''}>
+                                            Vote
+                                        </StyleVoteButton>
+                                    </div>
+                                </StyledCard>
                             </div>
                         </div>
                     </Tab.Panel>
