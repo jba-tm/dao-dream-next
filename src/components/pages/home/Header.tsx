@@ -11,30 +11,9 @@ import {CgMenu, CgClose} from "react-icons/cg";
 import {TbLanguage} from "react-icons/tb";
 import {Link} from "@/src/components/common/Link";
 
+
 const StyledHeader = styled.header`
-  /* Header */
-
-
-  /* Auto layout */
-
-  //display: flex;
-  //flex-direction: row;
-  //justify-content: space-between;
-  //align-items: center;
-  //padding: 16px 32px;
-  //gap: 32px;
- 
   height: 72px;
-
-
-  /* Inside auto layout */
-
-  //flex: none;
-  //order: 0;
-  //flex-grow: 0;
-  
-  
-  
   background-color: transparent;
   position: fixed;
   top: 0;
@@ -42,11 +21,9 @@ const StyledHeader = styled.header`
   backdrop-filter: blur(20px);
   padding: 16px 32px;
   z-index: 2;
-  //right: 0;
-  //left: 0; 
 `
 
-const StyledButton = styled.button`
+const StyledEnterApp = styled(Link)`
   background: linear-gradient(180deg, #f95acc 0%, rgba(113, 61, 255, 0) 100%),
   rgba(255, 255, 255, 0.02);
   border: var(--table-border-color) 1px solid;
@@ -174,9 +151,9 @@ const Header = () => {
                                 </Listbox>
                             </div>
 
-                            <StyledButton className="hover:opacity-50 ease-linear duration-150">
+                            <StyledEnterApp href={'/voting'} className="hover:opacity-50 ease-linear duration-150">
                                 Enter App
-                            </StyledButton>
+                            </StyledEnterApp>
                         </div>
 
                         <h1 className="lg:hidden block text-white text-xl">

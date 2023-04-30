@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {AiFillCaretDown, AiOutlineSend} from "react-icons/ai";
+import { AiOutlineSend} from "react-icons/ai";
 
 const StyledFooter = styled.footer`
   /* Footer */
