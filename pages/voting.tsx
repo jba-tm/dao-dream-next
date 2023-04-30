@@ -1,12 +1,11 @@
 import styled from "styled-components"
 import {Tab} from '@headlessui/react'
 import React from "react";
-import {StyledCard } from "@/src/components/features/Card";
+import {StyledCard} from "@/src/components/features/Card";
 import {Link} from "@/src/components/common/Link";
 import {BsArrowUpRight} from "react-icons/bs";
 import ContainerDropdown from "@/src/components/features/ContainerDropdown";
 import LineChart from "@/src/components/charts/LineChart";
-
 
 
 const StyledLoading = styled.div`
@@ -52,8 +51,8 @@ const StyledBadge = styled.div`
   height: 26px;
 
   background: rgba(255, 255, 255, 0.2);
-  border-radius: 80px; 
-  
+  border-radius: 80px;
+
   &.open {
     background-color: var(--purple-color);
   }
@@ -73,7 +72,7 @@ const StyledShowMore = styled.button`
 
   color: var(--secondary-text-color);
   margin-top: 15px;
- 
+
 `
 
 const StyledSmallText = styled.div`
@@ -84,9 +83,10 @@ const StyledSmallText = styled.div`
   /* identical to box height, or 138% */
 
   /* Light Periwinkle */
+
   &.secondary-text {
     color: var(--secondary-text-color);
-    
+
   }
 `
 
@@ -97,7 +97,7 @@ const StyledSecondaryText = styled.div`
   font-size: 16px;
   line-height: 24px;
   color: var(--secondary-text-color);
-  
+
 `
 
 const StyledText = styled.div`
@@ -119,7 +119,7 @@ const StyledInput = styled.input`
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 
-  ::placeholder{
+  ::placeholder {
 
     background: linear-gradient(180deg, #FFFFFF 0%, #CBD5D8 100%);
     -webkit-background-clip: text;
@@ -139,15 +139,22 @@ const StyledChartCard = styled.div`
 `
 
 const StyledFlyBird = styled.img`
-    position: absolute;
-    //top: %;
-    top: -8%;
-    right: 10%;
-    
+  position: absolute;
+
+  top: -8%;
+  right: 10%;
+  @media (max-width: 740px) {
+    position: relative;
+    width: 175px;
+  }
+
+  &.fly-bird-hidden {
+    display: none;
+  }
 `
 
 const StyleVoteButton = styled.button`
- 
+
   padding: 8px 24px;
 
   width: 120px;
@@ -157,11 +164,15 @@ const StyleVoteButton = styled.button`
   border-radius: 80px;
 
   /* Inside auto layout */
- 
+
   &.checked {
     background: #FFFFFF;
     color: #000000;
   }
+`
+
+const StyledHeading = styled.div`
+  align-items: center;
 `
 
 const cryptoCurves = [
@@ -190,16 +201,18 @@ const dayChoices = [
 ];
 
 
-
 const Voting = () => {
     const [checked, setChecked] = React.useState<boolean>(false)
+    const [birdHidden, setBirdHidden] = React.useState<boolean>(true)
     return (
         <div className="pt-24">
-            <div className="container">
+            <StyledHeading className="container flex  justify-between">
                 <h2>
                     dApp
                 </h2>
-            </div>
+                <StyledFlyBird className={birdHidden ? 'fly-bird-hidden' : ''} src="/images/bird.png"/>
+
+            </StyledHeading>
             <Tab.Group defaultIndex={0}>
 
                 <div className="mt-10 mb-4 p-0 border-b border-gray-200 dark:border-gray-700">
@@ -215,21 +228,26 @@ const Voting = () => {
                                 )}
                             </Tab>
                             <Tab as={React.Fragment}>
-                                {({selected}) => (
-                                    <StyledTabItem
-                                        className={`p-4 inline-block hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 ${selected ? 'active' : ''}`}>
-                                        System statistics
-                                    </StyledTabItem>
-                                )}
+                                {
+                                    ({selected}) => {
+                                        setBirdHidden(!selected)
+                                        return (
+                                            <StyledTabItem
+                                                className={`p-4 inline-block hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 ${selected ? 'active' : ''}`}>
+                                                System statistics
+                                            </StyledTabItem>
+                                        )
+                                    }
+                                }
                             </Tab>
-                            <Tab as={React.Fragment}>
-                                {({selected}) => (
-                                    <StyledTabItem
-                                        className={`p-4 inline-block hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 ${selected ? 'active' : ''}`}>
-                                        Voting - 2
-                                    </StyledTabItem>
-                                )}
-                            </Tab>
+                            {/*<Tab as={React.Fragment}>*/}
+                            {/*    {({selected}) => (*/}
+                            {/*        <StyledTabItem*/}
+                            {/*            className={`p-4 inline-block hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 ${selected ? 'active' : ''}`}>*/}
+                            {/*            Voting - 2*/}
+                            {/*        </StyledTabItem>*/}
+                            {/*    )}*/}
+                            {/*</Tab>*/}
                         </Tab.List>
                     </div>
                 </div>
@@ -247,9 +265,9 @@ const Voting = () => {
                                             <StyledSmallText className="secondary-text">
                                                 Start date
                                             </StyledSmallText>
-                                                <StyledSmallText>
-                                                    Mar 20, 2023 13:00 UTC
-                                                </StyledSmallText>
+                                            <StyledSmallText>
+                                                Mar 20, 2023 13:00 UTC
+                                            </StyledSmallText>
                                         </div>
                                         <div className="mt-5">
                                             <StyledSmallText className="secondary-text">
@@ -279,7 +297,7 @@ const Voting = () => {
 
                                             <StyledSmallText>
                                                 <StyledLink className="flex gap-1" href="#">
-                                                    <span >
+                                                    <span>
                                                     EQCVy5bE...2c5-i-GS
 
                                                     </span>
@@ -341,42 +359,40 @@ const Voting = () => {
                                 </StyledCard>
                             </div>
                             <div className="mt-12 grid lg:grid-cols-2 md:grid-cols-1 lg:gap-8 md:gap-4">
-                                <StyledCard className="mb-4">
-                                    <div className="flex flex-col">
-                                        <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                                            <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                                                <div className="overflow-hidden">
-                                                    <table className="min-w-full text-left text-sm font-light">
-                                                        <thead className="border-b font-medium dark:border-neutral-500">
-                                                        <tr>
-                                                            <th scope="col" className="px-6 py-4">#</th>
-                                                            <th scope="col" className="px-6 py-4">First</th>
-                                                            <th scope="col" className="px-6 py-4">Last</th>
-                                                            <th scope="col" className="px-6 py-4">Handle</th>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        <tr className="border-b dark:border-neutral-500">
-                                                            <td className="whitespace-nowrap px-6 py-4 font-medium">1</td>
-                                                            <td className="whitespace-nowrap px-6 py-4">Mark</td>
-                                                            <td className="whitespace-nowrap px-6 py-4">Otto</td>
-                                                            <td className="whitespace-nowrap px-6 py-4">@mdo</td>
-                                                        </tr>
-                                                        <tr className="border-b dark:border-neutral-500">
-                                                            <td className="whitespace-nowrap px-6 py-4 font-medium">2</td>
-                                                            <td className="whitespace-nowrap px-6 py-4">Jacob</td>
-                                                            <td className="whitespace-nowrap px-6 py-4">Thornton</td>
-                                                            <td className="whitespace-nowrap px-6 py-4">@fat</td>
-                                                        </tr>
-                                                        <tr className="border-b dark:border-neutral-500">
-                                                            <td className="whitespace-nowrap px-6 py-4 font-medium">3</td>
-                                                            <td className="whitespace-nowrap px-6 py-4">Larry</td>
-                                                            <td className="whitespace-nowrap px-6 py-4">Wild</td>
-                                                            <td className="whitespace-nowrap px-6 py-4">@twitter</td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
+                                <StyledCard className="overflow-x-auto mb-4">
+                                    <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                        <div className="inline-block min-w-full sm:px-6 lg:px-8">
+                                            <div className="overflow-hidden">
+                                                <table className="min-w-full text-left text-sm font-light">
+                                                    <thead className="border-b font-medium dark:border-neutral-500">
+                                                    <tr>
+                                                        <th scope="col" className="px-6 py-4">#</th>
+                                                        <th scope="col" className="px-6 py-4">First</th>
+                                                        <th scope="col" className="px-6 py-4">Last</th>
+                                                        <th scope="col" className="px-6 py-4">Handle</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr className="border-b dark:border-neutral-500">
+                                                        <td className="whitespace-nowrap px-6 py-4 font-medium">1</td>
+                                                        <td className="whitespace-nowrap px-6 py-4">Mark</td>
+                                                        <td className="whitespace-nowrap px-6 py-4">Otto</td>
+                                                        <td className="whitespace-nowrap px-6 py-4">@mdo</td>
+                                                    </tr>
+                                                    <tr className="border-b dark:border-neutral-500">
+                                                        <td className="whitespace-nowrap px-6 py-4 font-medium">2</td>
+                                                        <td className="whitespace-nowrap px-6 py-4">Jacob</td>
+                                                        <td className="whitespace-nowrap px-6 py-4">Thornton</td>
+                                                        <td className="whitespace-nowrap px-6 py-4">@fat</td>
+                                                    </tr>
+                                                    <tr className="border-b dark:border-neutral-500">
+                                                        <td className="whitespace-nowrap px-6 py-4 font-medium">3</td>
+                                                        <td className="whitespace-nowrap px-6 py-4">Larry</td>
+                                                        <td className="whitespace-nowrap px-6 py-4">Wild</td>
+                                                        <td className="whitespace-nowrap px-6 py-4">@twitter</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
@@ -413,7 +429,7 @@ const Voting = () => {
                                         </p>
 
                                         <div className="flex gap-4 items-center">
-                                            <img src="/images/coin.png" alt="" />
+                                            <img src="/images/coin.png" alt=""/>
 
                                             <div className="flex flex-col gap">
                                                 <p>Stake CAKE</p>
@@ -431,8 +447,6 @@ const Voting = () => {
                     </Tab.Panel>
                     <Tab.Panel>
                         <div className="container">
-                            <StyledFlyBird src="/images/bird.png"/>
-
                             <div className="grid lg:grid-cols-4 md:grid-cols-1 my-10">
                                 <div className="my-4 mr-5">
                                     <StyledSecondaryText>
@@ -459,7 +473,7 @@ const Voting = () => {
                                             <p className="font-medium">
                                                 Received from staking/farming profits
                                             </p>
-                                            <ContainerDropdown choices={dayChoices} />
+                                            <ContainerDropdown choices={dayChoices}/>
                                         </div>
 
                                         <div className="flex items-end flex-wrap gap-4 mb-4">
@@ -482,7 +496,7 @@ const Voting = () => {
                                                 Transferred to rewards for Holders
                                             </p>
 
-                                            <ContainerDropdown choices={dayChoices} />
+                                            <ContainerDropdown choices={dayChoices}/>
                                         </div>
 
                                         <div className="flex items-end flex-wrap gap-4 mb-4">
@@ -525,7 +539,7 @@ const Voting = () => {
                                         <p className="font-medium">
                                             Received from staking/farming profits
                                         </p>
-                                        <ContainerDropdown choices={dayChoices} />
+                                        <ContainerDropdown choices={dayChoices}/>
                                     </div>
 
                                     <div className="flex items-end flex-wrap gap-4 mb-4">
@@ -574,7 +588,7 @@ const Voting = () => {
                                             <p className="font-medium">
                                                 Received from staking/farming profits
                                             </p>
-                                            <ContainerDropdown choices={dayChoices} />
+                                            <ContainerDropdown choices={dayChoices}/>
                                         </div>
 
                                         <div className="flex items-end flex-wrap gap-4 mb-4">
@@ -597,7 +611,7 @@ const Voting = () => {
                                                 Transferred to rewards for Holders
                                             </p>
 
-                                            <ContainerDropdown choices={dayChoices} />
+                                            <ContainerDropdown choices={dayChoices}/>
                                         </div>
 
                                         <div className="flex items-end flex-wrap gap-4 mb-4">
@@ -661,7 +675,7 @@ const Voting = () => {
 
                                             <StyledSmallText>
                                                 <StyledLink className="flex gap-1" href="#">
-                                                    <span >
+                                                    <span>
                                                     EQCVy5bE...2c5-i-GS
 
                                                     </span>
@@ -718,7 +732,7 @@ const Voting = () => {
                                                         <tr className="border-b dark:border-neutral-500">
                                                             <td className="whitespace-nowrap pr-0 py-2 font-medium">
                                                                 <div className="flex gap-4 m-0 p-0">
-                                                                    <img src="/images/coin.png" alt="" />
+                                                                    <img src="/images/coin.png" alt=""/>
 
                                                                     <div className="flex flex-col gap">
                                                                         <p>Stake CAKE</p>
@@ -733,7 +747,8 @@ const Voting = () => {
                                                             <td className="whitespace-nowrap px-6 py-4">
                                                                 <div className="flex items-center justify-between mb-2">
                                                                     <p>
-                                                                        Yes <span className="text-secondary-text">91.75%</span>
+                                                                        Yes <span
+                                                                        className="text-secondary-text">91.75%</span>
                                                                     </p>
 
                                                                     <div className="flex text-secondary-text">
@@ -746,7 +761,8 @@ const Voting = () => {
                                                             </td>
                                                             <td className="whitespace-nowrap px-6 py-4">
                                                                 <input id="default-checkbox" type="checkbox" value=""
-                                                                       checked={checked} onClick={()=>setChecked(!checked)}
+                                                                       checked={checked}
+                                                                       onClick={() => setChecked(!checked)}
                                                                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
 
                                                             </td>
@@ -760,7 +776,7 @@ const Voting = () => {
                                     </div>
                                     <div className='flex justify-center'>
 
-                                        <StyleVoteButton className={checked?'checked':''}>
+                                        <StyleVoteButton className={checked ? 'checked' : ''}>
                                             Vote
                                         </StyleVoteButton>
                                     </div>
