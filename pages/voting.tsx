@@ -221,7 +221,7 @@ const Voting = () => {
                     <div className="mt-10 mb-4 p-0 border-b border-gray-200 dark:border-gray-700">
                         <div className="container ">
                             <Tab.List
-                                className="w-full flex -mb-px text-sm font-medium text-center overflow-x-scroll cursor-pointer">
+                                className="w-full flex -mb-px text-sm font-medium text-center overflow-x-scroll cursor-pointer scrollbar">
                                 <Tab as={React.Fragment}>
                                     {({selected}) => (
                                         <StyledTabItem
@@ -828,13 +828,13 @@ const Voting = () => {
                                 <div className="mt-24">
                                     <StyledCard>
                                         <div className="flex flex-col">
-                                            <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                            <div className="overflow-x-auto sm:-mx-6 lg:-mx-8 scroll-m-0">
                                                 <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                                                     <div className="">
                                                         <table className="table-auto min-w-full text-left text-sm font-light p-0">
                                                             <tbody>
                                                             <tr className="border-b dark:border-neutral-500">
-                                                                <td className="whitespace-nowrap pr-0 py-2 font-medium">
+                                                                <td style={{minWidth: '250px'}} className="whitespace-nowrap pr-0 py-2 font-medium">
                                                                     <div className="flex gap-4 m-0 p-0 w-full">
                                                                         <img src="/images/coin.png" alt=""/>
 
