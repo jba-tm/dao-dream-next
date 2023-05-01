@@ -211,22 +211,20 @@ const Voting = () => {
 
             <Header/>
             <div className="pt-24">
-                <StyledHeading className="container flex  justify-between">
+                <StyledHeading className="container flex justify-between">
                     <h2>
                         dApp
                     </h2>
                     <StyledFlyBird className={birdHidden ? 'fly-bird-hidden' : ''} src="/images/bird.png"/>
-
                 </StyledHeading>
                 <Tab.Group defaultIndex={0}>
                     <div className="mt-10 mb-4 p-0 border-b border-gray-200 dark:border-gray-700">
                         <div className="container ">
-                            <Tab.List className=" flex -mb-px text-sm font-medium text-center overflow-x-auto " id="myTab">
-
+                            <Tab.List className="w-full flex -mb-px text-sm font-medium text-center overflow-x-scroll cursor-move">
                                 <Tab as={React.Fragment}>
                                     {({selected}) => (
                                         <StyledTabItem
-                                            className={`p-4 inline-block hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 ${selected ? 'active' : ''}`}>
+                                            className={`p-4 inline-block hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300  ${selected ? 'active' : ''}`}>
                                             Voting
                                         </StyledTabItem>
                                     )}
@@ -264,8 +262,8 @@ const Voting = () => {
                                         Proposal of TON Tokenomics Optimization
                                     </h1>
                                     <div className="grid lg:grid-cols-5 md:grid-cols-1 mt-6">
-                                        <div className="mr-12">
-                                            <div className="mb-5">
+                                        <div className="mt-2 mb-2 mr-12">
+                                            <div className="mb-2">
                                                 <StyledSmallText className="secondary-text">
                                                     Start date
                                                 </StyledSmallText>
@@ -273,7 +271,7 @@ const Voting = () => {
                                                     Mar 20, 2023 13:00 UTC
                                                 </StyledSmallText>
                                             </div>
-                                            <div className="mt-5">
+                                            <div className="mt-2">
                                                 <StyledSmallText className="secondary-text">
                                                     End date
                                                 </StyledSmallText>
@@ -283,8 +281,8 @@ const Voting = () => {
                                                 </StyledSmallText>
                                             </div>
                                         </div>
-                                        <div className="mr-4">
-                                            <div className="mb-5">
+                                        <div className="sm:mt-2 sm:mb-2 mr-4">
+                                            <div className="mb-2">
                                                 <StyledSmallText className="secondary-text">
                                                     Snapshot
                                                 </StyledSmallText>
@@ -293,7 +291,7 @@ const Voting = () => {
                                                     Mar 21, 2023 00:00 UTC
                                                 </StyledSmallText>
                                             </div>
-                                            <div className="mt-5">
+                                            <div className="mt-2">
 
                                                 <StyledSmallText className="secondary-text">
                                                     Contract
@@ -314,7 +312,7 @@ const Voting = () => {
                                                 </StyledSmallText>
                                             </div>
                                         </div>
-                                        <div className="mr-4">
+                                        <div className="mt-2 mr-4">
                                             <div className="flex justify-start mb-5">
                                                 <div className="mr-4">
 

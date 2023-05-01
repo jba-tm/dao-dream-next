@@ -1,43 +1,52 @@
-import { Popover, Transition } from '@headlessui/react'
+import { Popover, Transition,Disclosure } from '@headlessui/react'
 import { Fragment } from 'react'
 import styled from "styled-components";
 
 
-const StyledCollectWallet = styled(Popover.Button)`
+const StyledCollectWallet = styled.button`
   background: linear-gradient(180deg, #f95acc 0%, rgba(113, 61, 255, 0) 100%),
   rgba(255, 255, 255, 0.02);
   border: var(--table-border-color) 1px solid;
   border-radius: 80px;
   padding: 8px 25px;
+  outline: none; 
+  
+  @media (max-width: 740px){
+    width: 90%;
+    height: 40px;
+  }
+  
 `
+
+
 
 const StyledPaneElement = styled.div`
   box-sizing: border-box;
- 
-  //width: 432px; 
-
   background: radial-gradient(97.9% 46.65% at 50% 108.23%, rgba(255, 255, 255, 0.9) 0%, rgba(113, 61, 255, 0.9) 33.33%, rgba(0, 0, 0, 0) 100%), #030118;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 24px;
- 
 `
 
 
 const StyledWallet = styled.a`/* item */
-
-
   box-sizing: border-box;
- 
+
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(12px);
   /* Note: backdrop-filter has minimal browser support */
 
   border-radius: 16px;
+  padding: 16px;
 
   :hover {
     box-shadow: 0 0 16px -4px #713DFF;
   }
+
+  @media (max-width: 740px){
+    display: block;
+  }
+  
 `
 
 const solutions = [
@@ -68,18 +77,61 @@ const solutions = [
     },
 ]
 
-function ConnectWallet() {
+export const MobileConnectWallet = ()=>{
+    return (
+        <div>
+
+            <Disclosure as="div" className="-mx-3">
+                {({ open }) => (
+                    <>
+
+                        <div className="flex justify-center">
+
+                            <Disclosure.Button as={StyledCollectWallet} className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-full">
+                                Collect wallet
+                            </Disclosure.Button>
+                        </div>
+                        <Disclosure.Panel className="mt-2 space-y-2">
+                            <div className="relative grid gap-8 p-7 grid-cols-2">
+                                {solutions.map((item) => (
+                                    <StyledWallet
+                                        key={item.name}
+                                        href={item.href}
+                                        className="-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out  focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+                                    >
+                                        <div className="flex h-10 w-10 shrink-0 items-center justify-center text-white sm:h-12 sm:w-12 mb-2">
+                                            <item.icon aria-hidden="true" />
+                                        </div>
+                                        <div className="mt-2">
+                                            <p className="text-sm font-medium">
+                                                {item.name}
+                                            </p>
+                                        </div>
+                                    </StyledWallet>
+                                ))}
+                            </div>
+                        </Disclosure.Panel>
+                    </>
+                )}
+            </Disclosure>
+        </div>
+    )
+}
+
+export function ConnectWallet() {
     return (
         <Popover className="relative">
             {({ open }) => (
                 <>
-                    <StyledCollectWallet
-                        className={`
-                ${open ? '' : 'text-opacity-90'}
-                group inline-flex items-center rounded-md bg-orange-700 px-3 py-2 text-base font-medium text-white hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
-                    >
-                        <span>Connect wallet</span>
-                    </StyledCollectWallet>
+                    <div className="flex justify-center">
+
+                        <Popover.Button as={StyledCollectWallet}
+                                        className={`
+                ${open ? '' : 'text-opacity-90'}`}
+                        >
+                            <span>Connect wallet</span>
+                        </Popover.Button>
+                    </div>
                     <Transition
                         as={Fragment}
                         enter="transition ease-out duration-200"
@@ -99,9 +151,9 @@ function ConnectWallet() {
                                             className="-m-3 flex items-center rounded-lg p-2 transition duration-150 ease-in-out  focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
                                         >
                                             <div className="flex h-10 w-10 shrink-0 items-center justify-center text-white sm:h-12 sm:w-12">
-                                                <item.icon aria-hidden="true" />
+                                                <item.icon width={32} height={32} aria-hidden="true" />
                                             </div>
-                                            <div className="ml-4">
+                                            <div>
                                                 <p className="text-sm font-medium">
                                                     {item.name}
                                                 </p>
@@ -119,11 +171,11 @@ function ConnectWallet() {
     )
 }
 
-function IconOne() {
+function IconOne({width=32, height=32}: {width?: string|number, height?: string|number}) {
     return (
         <svg
-            width="48"
-            height="48"
+            width={width}
+            height={height}
             viewBox="0 0 48 48"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -152,11 +204,11 @@ function IconOne() {
     )
 }
 
-function IconTwo() {
+function IconTwo({width=32, height=32}: {width?: string|number, height?: string|number}) {
     return (
         <svg
-            width="48"
-            height="48"
+            width={width}
+            height={height}
             viewBox="0 0 48 48"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -178,11 +230,11 @@ function IconTwo() {
     )
 }
 
-function IconThree() {
+function IconThree({width=32, height=32}: {width?: string|number, height?: string|number}) {
     return (
         <svg
-            width="48"
-            height="48"
+            width={width}
+            height={height}
             viewBox="0 0 48 48"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -197,5 +249,3 @@ function IconThree() {
         </svg>
     )
 }
-
-export default ConnectWallet
