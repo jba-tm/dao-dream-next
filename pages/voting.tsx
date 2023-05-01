@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import {Tab} from '@headlessui/react'
-import React from "react";
+import {Tab, Disclosure} from '@headlessui/react'
+import React, {Fragment} from "react";
 import {StyledCard} from "@/src/components/features/Card";
 import {Link} from "@/src/components/common/Link";
 import {BsArrowUpRight} from "react-icons/bs";
@@ -220,7 +220,8 @@ const Voting = () => {
                 <Tab.Group defaultIndex={0}>
                     <div className="mt-10 mb-4 p-0 border-b border-gray-200 dark:border-gray-700">
                         <div className="container ">
-                            <Tab.List className="w-full flex -mb-px text-sm font-medium text-center overflow-x-scroll cursor-move">
+                            <Tab.List
+                                className="w-full flex -mb-px text-sm font-medium text-center overflow-x-scroll cursor-pointer">
                                 <Tab as={React.Fragment}>
                                     {({selected}) => (
                                         <StyledTabItem
@@ -346,65 +347,166 @@ const Voting = () => {
                                 </div>
                                 <div className="mt-24">
                                     <StyledCard>
-                                        <p>
-                                            Tokenomics proposal to achieve community consensus on circulating supply of TON.
-                                            Proposal for a 48 month temporary freeze of inactive mining wallets, which have
-                                            never been activated and do not have any outgoing transfer in their history. In
-                                            response to repeated requests for greater certainty, clarity and transparency
-                                            over the tokenomics of the TON network on December 17, 2022, the community
-                                            called for all early miners to activate their inactive mining wallets by the end
-                                            of 2022.
-                                        </p>
-                                        <StyledShowMore>
-                                            Show more
-                                        </StyledShowMore>
+
+                                        <Disclosure>
+                                            {({open}) => (
+                                                <>
+
+                                                    <p className="indent-5">
+                                                        Tokenomics proposal to achieve community consensus on
+                                                        circulating supply
+                                                        of TON.
+                                                        Proposal for a 48 month temporary freeze of inactive mining
+                                                        wallets,
+                                                        which have
+                                                        never been activated and do not have any outgoing transfer in
+                                                        their
+                                                        history. In
+                                                        response to repeated requests for greater certainty, clarity and
+                                                        transparency
+                                                        over the tokenomics of the TON network on December 17, 2022, the
+                                                        community
+                                                        called for all early miners to activate their inactive mining
+                                                        wallets by
+                                                        the end
+                                                        of 2022.
+                                                    </p>
+                                                    <Disclosure.Panel>
+
+                                                        <p className="indent-5">
+                                                            Tokenomics proposal to achieve community consensus on
+                                                            circulating
+                                                            supply of TON.
+                                                            Proposal for a 48 month temporary freeze of inactive mining
+                                                            wallets,
+                                                            which have
+                                                            never been activated and do not have any outgoing transfer
+                                                            in their
+                                                            history. In
+                                                            response to repeated requests for greater certainty, clarity
+                                                            and
+                                                            transparency
+                                                            over the tokenomics of the TON network on December 17, 2022,
+                                                            the
+                                                            community
+                                                            called for all early miners to activate their inactive
+                                                            mining
+                                                            wallets by the end
+                                                            of 2022.
+                                                        </p>
+                                                        <p className="indent-5">
+                                                            Tokenomics proposal to achieve community consensus on
+                                                            circulating
+                                                            supply of TON.
+                                                            Proposal for a 48 month temporary freeze of inactive mining
+                                                            wallets,
+                                                            which have
+                                                            never been activated and do not have any outgoing transfer
+                                                            in their
+                                                            history. In
+                                                            response to repeated requests for greater certainty, clarity
+                                                            and
+                                                            transparency
+                                                            over the tokenomics of the TON network on December 17, 2022,
+                                                            the
+                                                            community
+                                                            called for all early miners to activate their inactive
+                                                            mining
+                                                            wallets by the end
+                                                            of 2022.
+                                                        </p>
+                                                    </Disclosure.Panel>
+                                                    <Disclosure.Button as={StyledShowMore}>
+                                                        {open ? "Less" : "Show more"}
+                                                    </Disclosure.Button>
+                                                </>
+                                            )}
+                                        </Disclosure>
                                     </StyledCard>
                                 </div>
                                 <div className="mt-12 grid lg:grid-cols-2 md:grid-cols-1 lg:gap-8 md:gap-4">
                                     <StyledCard className="overflow-x-auto mb-4">
-                                        <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                                            <div className="inline-block min-w-full sm:px-6 lg:px-8">
-                                                <div className="overflow-hidden">
-                                                    <table className="min-w-full text-left text-sm font-light">
-                                                        <thead className="border-b font-medium dark:border-neutral-500">
-                                                        <tr>
-                                                            <th scope="col" className="px-6 py-4">#</th>
-                                                            <th scope="col" className="px-6 py-4">First</th>
-                                                            <th scope="col" className="px-6 py-4">Last</th>
-                                                            <th scope="col" className="px-6 py-4">Handle</th>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                        <tr className="border-b dark:border-neutral-500">
-                                                            <td className="whitespace-nowrap px-6 py-4 font-medium">1</td>
-                                                            <td className="whitespace-nowrap px-6 py-4">Mark</td>
-                                                            <td className="whitespace-nowrap px-6 py-4">Otto</td>
-                                                            <td className="whitespace-nowrap px-6 py-4">@mdo</td>
-                                                        </tr>
-                                                        <tr className="border-b dark:border-neutral-500">
-                                                            <td className="whitespace-nowrap px-6 py-4 font-medium">2</td>
-                                                            <td className="whitespace-nowrap px-6 py-4">Jacob</td>
-                                                            <td className="whitespace-nowrap px-6 py-4">Thornton</td>
-                                                            <td className="whitespace-nowrap px-6 py-4">@fat</td>
-                                                        </tr>
-                                                        <tr className="border-b dark:border-neutral-500">
-                                                            <td className="whitespace-nowrap px-6 py-4 font-medium">3</td>
-                                                            <td className="whitespace-nowrap px-6 py-4">Larry</td>
-                                                            <td className="whitespace-nowrap px-6 py-4">Wild</td>
-                                                            <td className="whitespace-nowrap px-6 py-4">@twitter</td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <StyledShowMore>
-                                            Show more
-                                        </StyledShowMore>
-                                    </StyledCard>
-                                    <div className="flex flex-col justify-between mb-4">
+                                        <Disclosure>
+                                            {({open}) => (
+                                            <>
 
-                                        <StyledCard className="flex-auto mb-2">
+                                                <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                                    <div className="inline-block min-w-full sm:px-6 lg:px-8">
+                                                        <div className="overflow-hidden">
+                                                            <table className="min-w-full text-left text-sm font-light">
+                                                                <thead
+                                                                    className="border-b font-medium dark:border-neutral-500">
+                                                                <tr>
+                                                                    <th scope="col" className="px-6 py-4">#</th>
+                                                                    <th scope="col" className="px-6 py-4">First</th>
+                                                                    <th scope="col" className="px-6 py-4">Last</th>
+                                                                    <th scope="col" className="px-6 py-4">Handle</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                <tr className="border-b dark:border-neutral-500">
+                                                                    <td className="whitespace-nowrap px-6 py-4 font-medium">1</td>
+                                                                    <td className="whitespace-nowrap px-6 py-4">Mark</td>
+                                                                    <td className="whitespace-nowrap px-6 py-4">Otto</td>
+                                                                    <td className="whitespace-nowrap px-6 py-4">@mdo</td>
+                                                                </tr>
+                                                                <tr className="border-b dark:border-neutral-500">
+                                                                    <td className="whitespace-nowrap px-6 py-4 font-medium">2</td>
+                                                                    <td className="whitespace-nowrap px-6 py-4">Jacob</td>
+                                                                    <td className="whitespace-nowrap px-6 py-4">Thornton</td>
+                                                                    <td className="whitespace-nowrap px-6 py-4">@fat</td>
+                                                                </tr>
+                                                                <tr className="border-b dark:border-neutral-500">
+                                                                    <td className="whitespace-nowrap px-6 py-4 font-medium">3</td>
+                                                                    <td className="whitespace-nowrap px-6 py-4">Larry</td>
+                                                                    <td className="whitespace-nowrap px-6 py-4">Wild</td>
+                                                                    <td className="whitespace-nowrap px-6 py-4">@twitter</td>
+                                                                </tr>
+                                                                <Disclosure.Panel as={Fragment}>
+                                                                    <>
+
+                                                                        <tr className="border-b dark:border-neutral-500">
+                                                                            <td className="whitespace-nowrap px-6 py-4 font-medium">2</td>
+                                                                            <td className="whitespace-nowrap px-6 py-4">Jacob</td>
+                                                                            <td className="whitespace-nowrap px-6 py-4">Thornton</td>
+                                                                            <td className="whitespace-nowrap px-6 py-4">@fat</td>
+                                                                        </tr>
+                                                                        <tr className="border-b dark:border-neutral-500">
+                                                                            <td className="whitespace-nowrap px-6 py-4 font-medium">3</td>
+                                                                            <td className="whitespace-nowrap px-6 py-4">Larry</td>
+                                                                            <td className="whitespace-nowrap px-6 py-4">Wild</td>
+                                                                            <td className="whitespace-nowrap px-6 py-4">@twitter</td>
+                                                                        </tr>
+                                                                        <tr className="border-b dark:border-neutral-500">
+                                                                            <td className="whitespace-nowrap px-6 py-4 font-medium">2</td>
+                                                                            <td className="whitespace-nowrap px-6 py-4">Jacob</td>
+                                                                            <td className="whitespace-nowrap px-6 py-4">Thornton</td>
+                                                                            <td className="whitespace-nowrap px-6 py-4">@fat</td>
+                                                                        </tr>
+                                                                        <tr className="border-b dark:border-neutral-500">
+                                                                            <td className="whitespace-nowrap px-6 py-4 font-medium">3</td>
+                                                                            <td className="whitespace-nowrap px-6 py-4">Larry</td>
+                                                                            <td className="whitespace-nowrap px-6 py-4">Wild</td>
+                                                                            <td className="whitespace-nowrap px-6 py-4">@twitter</td>
+                                                                        </tr>
+                                                                    </>
+                                                                </Disclosure.Panel>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <Disclosure.Button as={StyledShowMore}>
+                                                    {open?"Less":"Show more"}
+                                                </Disclosure.Button>
+                                            </>
+                                                )}
+
+                                        </Disclosure>
+                                    </StyledCard>
+                                    <div className="flex flex-col justify-stretch mb-4">
+
+                                        <StyledCard className="flex-auto  mb-2">
                                             <p className="mb-4">
                                                 <span className="mr-2">Results</span>
                                                 <span className="text-secondary-text">1,726 votes</span>
@@ -423,24 +525,24 @@ const Voting = () => {
                                                 <StyledInner/>
                                             </StyledLoading>
                                         </StyledCard>
-                                        <StyledCard className="flex-auto mt-2">
+                                        <StyledCard className="flex-auto	 mt-2">
 
-                                            <p className="mb-4">
-                                                <span className="mr-2">Winner</span>
-                                                <span className="text-secondary-text">1,543 votes</span>
-                                            </p>
+                                                <p className="mb-4">
+                                                    <span className="mr-2">Winner</span>
+                                                    <span className="text-secondary-text">1,543 votes</span>
+                                                </p>
 
-                                            <div className="flex gap-4 items-center">
-                                                <img src="/images/coin.png" alt=""/>
+                                                <div className="flex gap-4 items-center">
+                                                    <img src="/images/coin.png" alt=""/>
 
-                                                <div className="flex flex-col gap">
-                                                    <p>Stake CAKE</p>
+                                                    <div className="flex flex-col gap">
+                                                        <p>Stake CAKE</p>
 
-                                                    <p className="text-secondary-text">
-                                                        Stake, Earn — And more!
-                                                    </p>
+                                                        <p className="text-secondary-text">
+                                                            Stake, Earn — And more!
+                                                        </p>
+                                                    </div>
                                                 </div>
-                                            </div>
                                         </StyledCard>
                                     </div>
                                 </div>
@@ -728,26 +830,27 @@ const Voting = () => {
                                         <div className="flex flex-col">
                                             <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                                                 <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                                                    <div className="overflow-hidden">
-                                                        <table className="min-w-full text-left text-sm font-light p-0">
+                                                    <div className="">
+                                                        <table className="table-auto min-w-full text-left text-sm font-light p-0">
                                                             <tbody>
                                                             <tr className="border-b dark:border-neutral-500">
                                                                 <td className="whitespace-nowrap pr-0 py-2 font-medium">
-                                                                    <div className="flex gap-4 m-0 p-0">
+                                                                    <div className="flex gap-4 m-0 p-0 w-full">
                                                                         <img src="/images/coin.png" alt=""/>
 
-                                                                        <div className="flex flex-col gap">
-                                                                            <p>Stake CAKE</p>
+                                                                        <div className=" ">
+                                                                            <div>Stake CAKE</div>
 
-                                                                            <p className="text-secondary-text">
+                                                                            <div className="text-secondary-text">
                                                                                 Stake, Earn — And more!
-                                                                            </p>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </td>
                                                                 <td className="whitespace-nowrap px-6 py-4">Mark</td>
                                                                 <td className="whitespace-nowrap px-6 py-4">
-                                                                    <div className="flex items-center justify-between mb-2">
+                                                                    <div
+                                                                        className="flex items-center justify-between mb-2">
                                                                         <p>
                                                                             Yes <span
                                                                             className="text-secondary-text">91.75%</span>
@@ -762,7 +865,8 @@ const Voting = () => {
                                                                     </StyledLoading>
                                                                 </td>
                                                                 <td className="whitespace-nowrap px-6 py-4">
-                                                                    <input id="default-checkbox" type="checkbox" value=""
+                                                                    <input id="default-checkbox" type="checkbox"
+                                                                           value=""
                                                                            checked={checked}
                                                                            onClick={() => setChecked(!checked)}
                                                                            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
