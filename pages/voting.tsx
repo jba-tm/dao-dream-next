@@ -880,7 +880,7 @@ const Voting = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className='flex justify-center'>
+                                        <div className='mt-5 flex justify-center'>
 
                                             <StyleVoteButton className={checked ? 'checked' : ''}>
                                                 Vote
