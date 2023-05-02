@@ -54,14 +54,13 @@ const BlocksSection = ()=>{
         <StyledSection className="mt-20 home__blocks">
             <StyledItem className="gap-4 p-5">
                 <div className="flex flex-col items-start gap-4 p-10">
-                    <h1 className="text-3xl">Earn a fixed APY</h1>
+                    <h1 className="text-3xl">Earn APYs up to 100%</h1>
 
                     <p className="text-2xl">-100,000%</p>
 
                     <p className="text-secondary-text">
-                        Here at HighPoint, we want to build a safe, long-term
-                        investment opportunity for those realistic and careful
-                        investors out there.{" "}
+                        Here at DAO Dream, we want to...
+                        Here at DAO Dream, we want to...{" "}
                     </p>
 
                     <LearnMoreButton />
@@ -74,13 +73,14 @@ const BlocksSection = ()=>{
             </StyledItem>
 
             <StyledItem className=" flex flex-col items-start gap-4 p-10">
-                <h1 className="text-3xl">Staking & Compounding</h1>
+                <h1 className="text-3xl">Voting</h1>
 
-                <p className="text-2xl">Automatic Staking in Your Wallet</p>
+                <p className="text-2xl">Liquidity goes to the farming or staking of the winner of the vote</p>
 
                 <p className="text-secondary-text">
-                    Here at HighPoint, we want to build a, long-term investment
-                    opportunity for those realistic and careful
+                    Holders of NFTs and Dream jettons, in addition to making a profit, have the opportunity to
+                    Voting for their choice of steaking and farming
+
                 </p>
 
                 <LearnMoreButton />

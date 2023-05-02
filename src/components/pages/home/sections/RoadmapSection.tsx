@@ -146,23 +146,23 @@ const RoadmapSection = ()=>{
                     <div className="home__roadmap__rows">
                         <div className="home__roadmap__row">
                             <div className="home__roadmap__col">
-                                Security (kyc/audit/multisign)
+                                1Development of smart contracts, a website and a DApp
                             </div>
 
-                            <div className="home__roadmap__col">Official Launch</div>
+                            <div className="home__roadmap__col">2Listing nft and jettons</div>
 
                             <div className="home__roadmap__col">
-                                Second phase of marketing
+                                3Social networking startup
                             </div>
                         </div>
                     </div>
 
                     <div className="home__roadmap__rows lg:ml-auto">
                         <div className="home__roadmap__row">
-                            <div className="home__roadmap__col">Website</div>
+                            <div className="home__roadmap__col">Creation of a p2p exchange,</div>
 
                             <div className="home__roadmap__col">
-                                Launch discord and official accounts
+                                5Connecting analytics and artificial intelligence
                             </div>
 
                             <div className="home__roadmap__col">More to come</div>

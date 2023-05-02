@@ -57,12 +57,11 @@ const RewardsSection = ()=>{
                 <h2 className="lg:text-5xl text-3xl">Get Rewards</h2>
 
                 <p className="lg:text-3xl text-xl">
-                    Every 30 Minutes / 48 Times Daily!
+                    Every Friday / 52 times a year!
                 </p>
 
                 <p className="text-secondary-text">
-                    Here at HighPoint, we want to build a long-term investment
-                    opportunity for those realistic and careful
+                    You automatically receive income every week and can withdraw it to your wallet at any time
                 </p>
 
                 <LearnMoreButton />

@@ -3,19 +3,20 @@ import {StyledCard, StyledCardText} from "@/src/components/features/Card";
 const cards = [
     {
         title: "Sustainable Growth",
-        text: "Invest in a crypto that prioritizes long-term sustainability and growth, rather than quick gains and instability.",
+        text: "Invest in Jettons and NFT Dreams that prioritize sustainable growth and perpetual returns.",
     },
+
     {
-        title: "Sustainable Growth",
-        text: "Invest in a crypto that prioritizes long-term sustainability and growth, rather than quick gains and instability.",
+        title: "Attractive returns",
+        text: "Get a higher return on your investment with attractive annual percentage yields (APYs).",
     },
     {
         title: "Auto Reinvesting",
-        text: "Keep your investments growing with our automatic reinvestment feature, which reinvests your earnings for you.",
+        text: "Boost your investments with auto reinvestment of earnings, which provides compound interest income.",
     },
     {
-        title: "Anti-Dump",
-        text: "Our anti-dump policy ensures that large sell-offs do not disrupt the market and harm our investors' portfolios.",
+        title: "Reset protection",
+        text: "All investments are protected by a smart contract; no one can make changes to the code. Connect to the blockchain using Web3 technology.",
     },
 ];
 
