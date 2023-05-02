@@ -221,7 +221,7 @@ const Voting = () => {
                     <div className="mt-10 mb-4 p-0 border-b border-gray-200 dark:border-gray-700">
                         <div className="container ">
                             <Tab.List
-                                className="w-full flex -mb-px text-sm font-medium text-center overflow-x-scroll cursor-pointer scrollbar">
+                                className="w-full flex -mb-px text-sm font-medium text-center overflow-x-scroll cursor-pointer scroll-hide">
                                 <Tab as={React.Fragment}>
                                     {({selected}) => (
                                         <StyledTabItem
