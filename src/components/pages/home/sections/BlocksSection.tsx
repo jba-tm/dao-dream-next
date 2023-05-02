@@ -52,7 +52,7 @@ const StyledInner = styled.div`
 const BlocksSection = ()=>{
     return (
         <StyledSection className="mt-20 home__blocks">
-            <StyledItem className="gap-4 p-5">
+            <StyledItem className="gap-4">
                 <div className="flex flex-col items-start gap-4 p-10">
                     <h1 className="text-3xl">Earn APYs up to 100%</h1>
 

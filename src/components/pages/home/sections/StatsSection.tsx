@@ -25,8 +25,10 @@ const StyledCard = styled.div`
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 24px;
-  padding: 10px;
-  
+  //padding: 24px;
+  //@media (max-width: 740px){
+  //  padding: 10px;
+  //}
 `
 
 const StyledTableWrapper = styled.div`
@@ -149,7 +151,7 @@ const StatsSection = ()=>{
                             <h1 className="uppercase text-5xl">STATISTICS</h1>
 
                             <p className="text-secondary-text ">
-                                Ton Statistics offers insights into the Ton ecosystem@apos;s
+                                Ton Statistics offers insights into the Ton ecosystem's
                                 performance, usage, and growth across various sectors.
                             </p>
                         </div>
@@ -158,7 +160,7 @@ const StatsSection = ()=>{
                             <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8">
                                 {stats.map((stat, index) => (
                                     <StyledCard
-                                        className=" flex flex-col gap-4 p-8"
+                                        className="flex flex-col gap-4 p-8"
                                         key={index}
                                     >
                                         <p className="text-secondary-text">{stat.title}</p>
@@ -216,8 +218,8 @@ const StatsSection = ()=>{
                                 </StyledCard>
                             </div>
 
-                            <StyledCard className=" p-8">
-                                <StyledTableWrapper>
+                            <StyledCard>
+                                <StyledTableWrapper className="p-8">
                                     <div className="flex flex-col gap-12">
                                         <div className="flex flex-col ">
                                             <p className="text-secondary-text text-lg">
@@ -229,7 +231,7 @@ const StatsSection = ()=>{
 
                                         <div className="flex flex-col gap-4">
                                             <p className="text-secondary-text text-lg">
-                                                Steakin@apos; jettons
+                                                Steakin's jettons
                                             </p>
 
                                             <h3 className="text-4xl">100 000</h3>

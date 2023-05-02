@@ -58,7 +58,7 @@ const StyledWrapper = styled.div`
             &::after {
               z-index: -1;
               background-image: url("/icons/connectors/1.svg");
-              //top: -30%;
+              top: -25%;
             }
 
             &:last-child {
@@ -146,13 +146,13 @@ const RoadmapSection = ()=>{
                     <div className="home__roadmap__rows">
                         <div className="home__roadmap__row">
                             <div className="home__roadmap__col">
-                                1Development of smart contracts, a website and a DApp
+                                Development of smart contracts, a website and a DApp
                             </div>
 
-                            <div className="home__roadmap__col">2Listing nft and jettons</div>
+                            <div className="home__roadmap__col">Listing nft and jettons</div>
 
                             <div className="home__roadmap__col">
-                                3Social networking startup
+                                Social networking startup
                             </div>
                         </div>
                     </div>
@@ -162,7 +162,7 @@ const RoadmapSection = ()=>{
                             <div className="home__roadmap__col">Creation of a p2p exchange,</div>
 
                             <div className="home__roadmap__col">
-                                5Connecting analytics and artificial intelligence
+                                Connecting analytics and artificial intelligence
                             </div>
 
                             <div className="home__roadmap__col">More to come</div>

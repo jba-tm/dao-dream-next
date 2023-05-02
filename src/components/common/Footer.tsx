@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { AiOutlineSend} from "react-icons/ai";
+import { FaTelegramPlane,FaTiktok, FaYoutube, FaInstagram } from "react-icons/fa";
+import { RiDiscordFill, RiGithubFill, RiRedditFill, RiTwitterFill, RiFacebookFill } from "react-icons/ri";
 
 const StyledFooter = styled.footer`
   /* Footer */
@@ -37,18 +38,27 @@ const StyledSocials = styled.div`
 
 const StyledSocial = styled.div`
   border: 1px solid var(--border-color);
-  padding: 11px 8px;
-  border-radius: 14px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 10px 1fr;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  
+  border-radius: 14px; 
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  padding: 11px 8px;
+  gap: 4px;
+
+  width: 94.55px;
+  height: 46px;
+  //gap: 10px;
   
   :hover {
     box-shadow: 0 0 16px -4px #713DFF;
   }
-  
+
 `
 
 const StyleBottomText = styled.div`
@@ -65,6 +75,53 @@ const StyleBottomText = styled.div`
   color: var(--secondary-text-color);
 `
 
+const socials = [
+    {
+        'title': 'Channel',
+        icon: FaTelegramPlane
+    },
+    {
+        'title': 'Chat',
+        icon: FaTelegramPlane
+    },
+    {
+        'title': 'Discord',
+        icon: RiDiscordFill
+    },
+    {
+        'title': 'Bot',
+        icon: RiDiscordFill
+    },
+    {
+        'title': 'Github',
+        icon: RiGithubFill
+    },
+    {
+        'title': 'Reddit',
+        icon: RiRedditFill
+    },
+    {
+        'title': 'Twitter',
+        icon: RiTwitterFill,
+    },
+    {
+        'title': 'Facebook',
+        icon: RiFacebookFill,
+    },
+    {
+        'title': 'Tiktok',
+        icon: FaTiktok,
+    },
+    {
+        'title': 'Youtube',
+        icon: FaYoutube,
+    },
+    {
+        'title': 'Instagram',
+        icon: FaInstagram,
+    },
+]
+
 export default function Footer() {
     return (
         <StyledFooter className="bottom-0 w-full bg-darkest-blue py-16">
@@ -73,17 +130,16 @@ export default function Footer() {
                 <p>dao-dream.com</p>
 
                 <StyledSocials className="mt-10">
-                    {Array.from([0, 1, 2, 3, 4, 5, 6, 7, 8]).map((_, index) => (
+                    {socials.map((item, index) => (
                         <StyledSocial key={index}>
-                            <AiOutlineSend/>
-                            <span>Channel</span>
+                            <item.icon/>
+                            <span>{item.title}</span>
                         </StyledSocial>
                     ))}
                 </StyledSocials>
             </div>
             <div className="w-full py-5 border-t border-border bg-transparent">
                 <div className="container">
-
                     <StyleBottomText>
                         © 2023 dao-dream.com. All rights reserved.
                     </StyleBottomText>
