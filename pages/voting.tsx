@@ -750,7 +750,9 @@ const Voting = () => {
                                 <div className="pt-12">
                                     <StyledBadge className=" mb-6 open">Open</StyledBadge>
                                     <h1>
-                                        Proposal of TON Tokenomics Optimization
+                                        Proposal of TON Tokenomics <img style={{display: 'inline'}}
+                                                                        src="/images/cirle-bird.png" width={90}
+                                                                        height={90} alt=""/>
                                     </h1>
                                     <div className="grid lg:grid-cols-5 md:grid-cols-1 mt-6">
                                         <div className="mr-12">
