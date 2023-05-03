@@ -37,10 +37,7 @@ const StyledSocials = styled.div`
   
   @media (max-width: 740px){
     grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
-    
-    
   }
-  
 `
 
 const StyledSocial = styled.div`

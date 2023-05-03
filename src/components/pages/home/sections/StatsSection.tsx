@@ -151,7 +151,7 @@ const StatsSection = ()=>{
                             <h1 className="uppercase text-5xl">STATISTICS</h1>
 
                             <p className="text-secondary-text ">
-                                Ton Statistics offers insights into the Ton ecosystem's
+                                Ton Statistics offers insights into the Ton ecosystem&#39;s
                                 performance, usage, and growth across various sectors.
                             </p>
                         </div>
@@ -231,7 +231,7 @@ const StatsSection = ()=>{
 
                                         <div className="flex flex-col gap-4">
                                             <p className="text-secondary-text text-lg">
-                                                Steakin's jettons
+                                                Steakin&#39;s jettons
                                             </p>
 
                                             <h3 className="text-4xl">100 000</h3>
