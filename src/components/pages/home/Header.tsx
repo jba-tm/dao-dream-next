@@ -24,7 +24,7 @@ const StyledHeader = styled.header`
   z-index: 2;
 `
 
-const StyledEnterApp = styled.div`
+const StyledEnterApp = styled(Link)`
   //box-sizing: border-box;
 
   /* Auto layout */
@@ -33,8 +33,8 @@ const StyledEnterApp = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 8px 24px;
- 
+  padding: 8px 30px;
+
 
   background: linear-gradient(180deg, #F95ACC 0%, rgba(113, 61, 255, 0) 100%), rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -49,8 +49,8 @@ const StyledEnterApp = styled.div`
   flex: none;
   order: 1;
   flex-grow: 0;
-  
-  
+
+
 `
 
 
@@ -180,10 +180,8 @@ const Header = () => {
                                 </Listbox>
                             </div>
 
-                            <StyledEnterApp className="hover:opacity-50 ease-linear duration-150">
-                                <Link href={'/voting'} >
-                                    Enter App
-                                </Link>
+                            <StyledEnterApp href={'/voting'} className="hover:opacity-50 ease-linear duration-150">
+                                Enter App
                             </StyledEnterApp>
                         </div>
 
@@ -215,7 +213,7 @@ const Header = () => {
                             className="hover:opacity-50 ease-linear duration-150 -m-1.5 p-1.5"
                         >
                             <span className="sr-only">Your Company</span>
-                            <img src="/images/logo.svg" alt="" />
+                            <img src="/images/logo.svg" alt=""/>
                         </Link>
                         <button
                             type="button"
@@ -256,10 +254,8 @@ const Header = () => {
                     </div>
 
                     <div className="mt-12 w-full">
-                        <StyledEnterApp className="hover:opacity-50 ease-linear duration-150">
-                            <Link href={'/voting'} >
-                                Enter App
-                            </Link>
+                        <StyledEnterApp href={'/voting'} className="hover:opacity-50 ease-linear duration-150">
+                            Enter App
                         </StyledEnterApp>
                     </div>
                 </StyledDialogPanel>
