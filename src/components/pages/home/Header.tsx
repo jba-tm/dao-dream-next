@@ -14,7 +14,7 @@ import LanguageMenu from "@/src/components/features/LanguageMenu";
 
 
 const StyledHeader = styled.header`
-  height: 72px;
+  //height: 72px;
   background-color: transparent;
   position: fixed;
   top: 0;
@@ -51,6 +51,10 @@ const StyledEnterApp = styled(Link)`
   flex-grow: 0;
 
 
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  
 `
 
 
@@ -252,9 +256,8 @@ const Header = () => {
                             </div>
                         </div>
                     </div>
-
                     <div className="mt-12 w-full">
-                        <StyledEnterApp href={'/voting'} className="hover:opacity-50 ease-linear duration-150">
+                        <StyledEnterApp href={'/voting'}>
                             Enter App
                         </StyledEnterApp>
                     </div>

@@ -204,10 +204,20 @@ const dayChoices = [
 
 
 const Voting = () => {
-    const [cakes, setCakes] = React.useState<number[]>([])
+    const [cakes, setCakes] = React.useState<string[]>([])
     // const [checked, setChecked] = React.useState<boolean>(false)
     const [birdHidden, setBirdHidden] = React.useState<boolean>(true)
-    console.log(cakes, cakes.length)
+
+    const handleCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
+        let updatedList = [...cakes];
+        if (event.target.checked) {
+            updatedList = [...cakes, event.target.value];
+        } else {
+            updatedList.splice(cakes.indexOf(event.target.value), 1);
+        }
+        setCakes(updatedList);
+    };
+
     return (
         <div>
 
@@ -850,29 +860,15 @@ const Voting = () => {
                                                             <tbody>
 
                                                             {
-                                                                Array.from([0, 1, 2, 3, 4, 5]).map((item, ) => (
+                                                                Array.from(['0', '1', '2', '3', '4', '5']).map((item, ) => (
                                                             <tr className="border-b dark:border-neutral-500"
                                                                 key={item}>
 
                                                                 <td className="whitespace-nowrap px-6 py-4">
                                                                     <input id="default-checkbox" type="checkbox"
-                                                                           onChange={()=>cakes.includes(item)}
 
-                                                                           onClick={() => {
-                                                                               if (cakes.includes(item)){
-                                                                                   const inx = cakes.indexOf(item)
-                                                                                   // delete cakes[inx]
-                                                                                   cakes.splice(inx, 1)
-                                                                                   setCakes(cakes)
-
-                                                                                    return false
-                                                                               }else{
-                                                                                   cakes.push(item)
-                                                                                   setCakes(cakes)
-                                                                                   return true
-                                                                               }
-
-                                                                           }}
+                                                                           value={item}
+                                                                           onChange={(e)=>handleCheck(e)}
                                                                            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"/>
 
                                                                 </td>
@@ -896,7 +892,8 @@ const Voting = () => {
 
 
                                                             </tr>
-                                                            ))}
+                                                            ))
+                                                            }
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -905,8 +902,8 @@ const Voting = () => {
                                         </div>
                                         <div className='mt-5 flex justify-center'>
 
-                                            <StyleVoteButton className={cakes.length > 0 ? 'checked' : ''}>
-                                                Vote
+                                            <StyleVoteButton className={cakes.length ? 'checked' : ''}>
+                                                Vote {cakes.length}
                                             </StyleVoteButton>
                                         </div>
                                     </StyledCard>

@@ -4,15 +4,12 @@ import styled from "styled-components";
 
 
 const StyledCollectWallet = styled.button`
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 8px 24px;
+  padding: 8px 30px;
 
-  //width: 136px;
-  //height: 40px;
 
   background: linear-gradient(180deg, #F95ACC 0%, rgba(113, 61, 255, 0) 100%), rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -27,6 +24,35 @@ const StyledCollectWallet = styled.button`
   flex: none;
   order: 1;
   flex-grow: 0;
+
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+
+
+  //display: flex;
+  //flex-direction: column;
+  //justify-content: center;
+  //align-items: center;
+  //padding: 8px 24px;
+  //
+  ////width: 136px;
+  ////height: 40px;
+  //
+  //background: linear-gradient(180deg, #F95ACC 0%, rgba(113, 61, 255, 0) 100%), rgba(255, 255, 255, 0.02);
+  //border: 1px solid rgba(255, 255, 255, 0.2);
+  //box-shadow: 0 0 16px -4px var(--purple-color);
+  //backdrop-filter: blur(12px);
+  ///* Note: backdrop-filter has minimal browser support */
+  //
+  //border-radius: 80px;
+  //
+  ///* Inside auto layout */
+  //
+  //flex: none;
+  //order: 1;
+  //flex-grow: 0;
   
   //background: linear-gradient(180deg, #f95acc 0%, rgba(113, 61, 255, 0) 100%),
   //rgba(255, 255, 255, 0.02);
@@ -35,10 +61,10 @@ const StyledCollectWallet = styled.button`
   //padding: 8px 25px;
   //outline: none; 
 
-  @media (max-width: 740px){
-    width: 90%;
-    height: 40px;
-  }
+  //@media (max-width: 740px){
+  //  width: 90%;
+  //  height: 40px;
+  //}
   
 `
 
@@ -103,15 +129,11 @@ const solutions = [
 
 export const MobileConnectWallet = ()=>{
     return (
-        <div>
-
-            <Disclosure as="div" className="-mx-3">
+            <Disclosure as="div" className="w-full">
                 {({ open }) => (
                     <>
-
-                        <div className="flex justify-center">
-
-                            <Disclosure.Button as={StyledCollectWallet} className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded-full">
+                        <div className="mt-12 w-full">
+                            <Disclosure.Button as={StyledCollectWallet} className="w-full">
                                 Collect wallet
                             </Disclosure.Button>
                         </div>
@@ -138,7 +160,6 @@ export const MobileConnectWallet = ()=>{
                     </>
                 )}
             </Disclosure>
-        </div>
     )
 }
 

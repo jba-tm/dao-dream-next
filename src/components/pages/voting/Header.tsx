@@ -12,7 +12,7 @@ import LanguageMenu from "@/src/components/features/LanguageMenu";
 
 
 const StyledHeader = styled.header`
-  height: 72px;
+  //height: 72px;
   background-color: transparent;
   position: fixed;
   top: 0;
@@ -162,9 +162,7 @@ const Header = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="mt-12">
-                        <MobileConnectWallet />
-                    </div>
+                    <MobileConnectWallet />
 
                 </StyledDialogPanel>
             </Dialog>
