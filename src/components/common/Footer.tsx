@@ -32,8 +32,15 @@ const StyledFooter = styled.footer`
 
 const StyledSocials = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
   gap: 1rem;
+  
+  @media (max-width: 740px){
+    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+    
+    
+  }
+  
 `
 
 const StyledSocial = styled.div`
