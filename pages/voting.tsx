@@ -903,7 +903,7 @@ const Voting = () => {
                                         <div className='mt-5 flex justify-center'>
 
                                             <StyleVoteButton className={cakes.length ? 'checked' : ''}>
-                                                Vote {cakes.length}
+                                                Vote
                                             </StyleVoteButton>
                                         </div>
                                     </StyledCard>
