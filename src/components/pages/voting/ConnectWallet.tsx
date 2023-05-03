@@ -4,13 +4,37 @@ import styled from "styled-components";
 
 
 const StyledCollectWallet = styled.button`
-  background: linear-gradient(180deg, #f95acc 0%, rgba(113, 61, 255, 0) 100%),
-  rgba(255, 255, 255, 0.02);
-  border: var(--table-border-color) 1px solid;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 24px;
+
+  //width: 136px;
+  //height: 40px;
+
+  background: linear-gradient(180deg, #F95ACC 0%, rgba(113, 61, 255, 0) 100%), rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 16px -4px var(--purple-color);
+  backdrop-filter: blur(12px);
+  /* Note: backdrop-filter has minimal browser support */
+
   border-radius: 80px;
-  padding: 8px 25px;
-  outline: none; 
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
   
+  //background: linear-gradient(180deg, #f95acc 0%, rgba(113, 61, 255, 0) 100%),
+  //rgba(255, 255, 255, 0.02);
+  //border: var(--table-border-color) 1px solid;
+  //border-radius: 80px;
+  //padding: 8px 25px;
+  //outline: none; 
+
   @media (max-width: 740px){
     width: 90%;
     height: 40px;

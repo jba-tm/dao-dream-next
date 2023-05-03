@@ -70,6 +70,8 @@ function LineChart(
                         },
                     ],
                 }}
+                updateMode={'resize'}
+                redraw={true}
                 // style={{maxHeight: 400}}
                 // height={500}
                 options={{

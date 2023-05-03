@@ -25,18 +25,30 @@ const StyledHeader = styled.header`
 `
 
 const StyledEnterApp = styled.div`
+  //box-sizing: border-box;
+
+  /* Auto layout */
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 8px 24px;
-  
-  
-  background: linear-gradient(180deg, #f95acc 0%, rgba(113, 61, 255, 0) 100%),
-  rgba(255, 255, 255, 0.02);
-  border: var(--table-border-color) 1px solid;
-  border-radius: 80px; 
-  width: 100%;
+ 
+
+  background: linear-gradient(180deg, #F95ACC 0%, rgba(113, 61, 255, 0) 100%), rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 16px -4px var(--purple-color);
+  backdrop-filter: blur(12px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 80px;
+
+  /* Inside auto layout */
+
+  flex: none;
+  order: 1;
+  flex-grow: 0;
   
   
 `
@@ -234,7 +246,7 @@ const Header = () => {
                                     <a
                                         key={i}
                                         href={item.path}
-                                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-gray-50"
+                                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7  "
                                     >
                                         {item.name}
                                     </a>

@@ -154,7 +154,7 @@ const Header = () => {
                                     <a
                                         key={i}
                                         href={item.path}
-                                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-gray-50"
+                                        className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 "
                                     >
                                         {item.name}
                                     </a>

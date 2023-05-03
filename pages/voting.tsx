@@ -395,8 +395,8 @@ const Voting = () => {
                                                                     <thead
                                                                         className="border-b font-medium dark:border-neutral-500">
                                                                     <tr>
-                                                                        <th scope="col" className="px-6 py-4">Recent
-                                                                            votes <span className="text-secondary-text">1,726 votes</span>
+                                                                        <th scope="col" className="px-6 py-4">
+                                                                            Recent votes <span className="text-secondary-text">1,726 votes</span>
                                                                         </th>
                                                                         <th scope="col" className="px-6 py-4"/>
                                                                         <th scope="col" className="px-6 py-4"><span
