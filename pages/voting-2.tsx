@@ -594,4 +594,4 @@ const Voting2 = () => {
     )
 }
 
-export default Voting
+export default Voting2
