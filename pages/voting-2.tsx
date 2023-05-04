@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import {Tab, Disclosure} from '@headlessui/react'
-import React, {Fragment} from "react";
+import {Tab} from '@headlessui/react'
+import React from "react";
 import {StyledCard} from "@/src/components/features/Card";
 import {Link} from "@/src/components/common/Link";
 import {BsArrowUpRight} from "react-icons/bs";
@@ -58,23 +58,6 @@ const StyledBadge = styled.div`
   &.open {
     background-color: var(--purple-color);
   }
-`
-
-const StyledShowMore = styled.button`
-  /* Small text */
-
-  font-size: 13px;
-  line-height: 18px;
-  /* identical to box height, or 138% */
-
-  display: flex;
-  align-items: center;
-
-  /* Light Periwinkle */
-
-  color: var(--secondary-text-color);
-  margin-top: 15px;
-
 `
 
 const StyledSmallText = styled.div`
@@ -203,7 +186,7 @@ const dayChoices = [
 ];
 
 
-const Voting = () => {
+const Voting2 = () => {
     const [cakes, setCakes] = React.useState<string[]>([])
     // const [checked, setChecked] = React.useState<boolean>(false)
     const [birdHidden, setBirdHidden] = React.useState<boolean>(true)
