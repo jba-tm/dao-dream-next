@@ -188,8 +188,6 @@ const dayChoices = [
 
 const Voting2 = () => {
     const [cakes, setCakes] = React.useState<string[]>([])
-    // const [checked, setChecked] = React.useState<boolean>(false)
-    const [birdHidden, setBirdHidden] = React.useState<boolean>(true)
 
     const handleCheck = (event: React.ChangeEvent<HTMLInputElement>) => {
         let updatedList = [...cakes];
@@ -210,7 +208,6 @@ const Voting2 = () => {
                     <h2>
                         dApp
                     </h2>
-                    <StyledFlyBird className={birdHidden ? 'fly-bird-hidden' : ''} src="/images/bird.png"/>
                 </StyledHeading>
                 <Tab.Group defaultIndex={0}>
                     <div className="mt-10 mb-4 p-0 border-b border-gray-200 dark:border-gray-700">
@@ -224,19 +221,6 @@ const Voting2 = () => {
                                             Voting
                                         </StyledTabItem>
                                     )}
-                                </Tab>
-                                <Tab as={React.Fragment}>
-                                    {
-                                        ({selected}) => {
-                                            setBirdHidden(!selected)
-                                            return (
-                                                <StyledTabItem
-                                                    className={`p-4 inline-block hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300 ${selected ? 'active' : ''}`}>
-                                                    System statistics
-                                                </StyledTabItem>
-                                            )
-                                        }
-                                    }
                                 </Tab>
                             </Tab.List>
                         </div>
@@ -393,194 +377,6 @@ const Voting2 = () => {
                                             </StyleVoteButton>
                                         </div>
                                     </StyledCard>
-                                </div>
-                            </div>
-                        </Tab.Panel>
-                        <Tab.Panel>
-                            <div className="container">
-                                <div className="grid lg:grid-cols-4 md:grid-cols-1 my-10">
-                                    <div className="my-4 mr-5">
-                                        <StyledSecondaryText>
-                                            Purchased tokens
-                                        </StyledSecondaryText>
-                                        <StyledText>
-                                            764,950,317
-                                        </StyledText>
-                                    </div>
-                                    <div className="my-4 mr-5">
-                                        <StyledSecondaryText>
-                                            Purchased NFT
-                                        </StyledSecondaryText>
-                                        <StyledText>
-                                            479,283
-                                        </StyledText>
-                                    </div>
-                                </div>
-
-                                <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-8 my-10">
-                                    <StyledChartCard className=" flex flex-col gap-4">
-                                        <div className="p-8">
-                                            <div className="flex items-center justify-between flex-wrap gap-2 mb-4">
-                                                <p className="font-medium">
-                                                    Cost of Jetton
-                                                </p>
-                                                <ContainerDropdown choices={dayChoices}/>
-                                            </div>
-
-                                            <div className="flex items-end flex-wrap gap-4 mb-4">
-                                                <h1 className="text-5xl font-medium">$2.14B</h1>
-
-                                                <div className="text-secondary-text">April 7, 2023</div>
-                                                <div className="text-secondary-text">Capitalization $2.14B</div>
-                                            </div>
-                                        </div>
-                                        <LineChart
-                                            borderColor={"#713DFF"}
-                                            backgroundColorBottom={"rgba(0, 143, 255, 0)"}
-                                            backgroundColorTop={"rgba(0, 143, 255, 1)"}
-                                        />
-                                    </StyledChartCard>
-
-                                    <StyledChartCard className=" flex flex-col gap-4">
-                                        <div className="p-8">
-                                            <div className="flex items-center justify-between flex-wrap gap-2 mb-4">
-                                                <p className="font-medium">
-                                                    Cost of NFT
-                                                </p>
-
-                                                <ContainerDropdown choices={dayChoices}/>
-                                            </div>
-
-                                            <div className="flex items-end flex-wrap gap-4 mb-4">
-                                                <h1 className="text-5xl font-medium">$10.00B</h1>
-
-                                                <div className="text-secondary-text">April 7, 2023</div>
-                                                <div className="text-secondary-text">Capitalization $2.14B</div>
-
-                                            </div>
-                                        </div>
-                                        <LineChart
-                                            borderColor={"#713DFF"}
-                                            backgroundColorBottom={"rgba(0, 143, 255, 0)"}
-                                            backgroundColorTop={"rgba(0, 143, 255, 1)"}
-                                        />
-
-                                    </StyledChartCard>
-                                </div>
-
-
-                                <div className="grid lg:grid-cols-4 md:grid-cols-1 my-10">
-                                    <div className="my-4 mr-5">
-                                        <StyledSecondaryText>
-                                            ARY
-                                        </StyledSecondaryText>
-                                        <StyledText>
-                                            33.03%
-                                        </StyledText>
-                                    </div>
-                                    <div className="my-4 mr-5">
-                                        <StyledSecondaryText>
-                                            Steaking time
-                                        </StyledSecondaryText>
-                                        <StyledText>
-                                            1 year
-                                        </StyledText>
-                                    </div>
-                                </div>
-                                <StyledChartCard className=" flex flex-col gap-4 my-10">
-                                    <div className="p-8">
-                                        <div className="flex items-center justify-between flex-wrap gap-2 mb-4">
-                                            <p className="font-medium">
-                                                Stacking of Dream jettons
-                                            </p>
-                                            <ContainerDropdown choices={dayChoices}/>
-                                        </div>
-
-                                        <div className="flex items-end flex-wrap gap-4 mb-4">
-                                            <h1 className="text-5xl font-medium">$102.14B</h1>
-
-                                            <p className="text-secondary-text">March 24, 2023</p>
-                                        </div>
-                                    </div>
-                                    <LineChart
-                                        borderColor={"#713DFF"}
-                                        backgroundColorBottom={"rgba(0, 143, 255, 0)"}
-                                        backgroundColorTop={"rgba(0, 143, 255, 1)"}
-                                    />
-                                </StyledChartCard>
-
-                                <div className="grid lg:grid-cols-4 md:grid-cols-1 my-10">
-                                    <div className="my-4 mr-5">
-                                        <StyledSecondaryText>
-                                            Total contribution, $
-                                        </StyledSecondaryText>
-                                        <StyledText>
-                                            8,152,104
-                                        </StyledText>
-                                    </div>
-                                    <div className="my-4 mr-5">
-                                        <StyledSecondaryText>
-                                            Number of DAO shareholders
-                                        </StyledSecondaryText>
-                                        <StyledText>
-                                            492,682
-                                        </StyledText>
-                                    </div>
-                                    <div className="my-4 mr-5">
-                                        <StyledSecondaryText>
-                                            Countdown
-                                        </StyledSecondaryText>
-                                        <StyledText>
-                                            312d 17h 31m
-                                        </StyledText>
-                                    </div>
-                                </div>
-                                <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-8 my-10">
-                                    <StyledChartCard className=" flex flex-col gap-4">
-                                        <div className="p-8">
-                                            <div className="flex items-center justify-between flex-wrap gap-2 mb-4">
-                                                <p className="font-medium">
-                                                    Received from staking/farming profits
-                                                </p>
-                                                <ContainerDropdown choices={dayChoices}/>
-                                            </div>
-
-                                            <div className="flex items-end flex-wrap gap-4 mb-4">
-                                                <h1 className="text-5xl font-medium">$2.14B</h1>
-
-                                                <p className="text-secondary-text">April 7, 2023</p>
-                                            </div>
-                                        </div>
-                                        <LineChart
-                                            borderColor={"#713DFF"}
-                                            backgroundColorBottom={"rgba(0, 143, 255, 0)"}
-                                            backgroundColorTop={"rgba(0, 143, 255, 1)"}
-                                        />
-                                    </StyledChartCard>
-
-                                    <StyledChartCard className=" flex flex-col gap-4">
-                                        <div className="p-8">
-                                            <div className="flex items-center justify-between flex-wrap gap-2 mb-4">
-                                                <p className="font-medium">
-                                                    Transferred to rewards for Holders
-                                                </p>
-
-                                                <ContainerDropdown choices={dayChoices}/>
-                                            </div>
-
-                                            <div className="flex items-end flex-wrap gap-4 mb-4">
-                                                <h1 className="text-5xl font-medium">$315.49B</h1>
-
-                                                <p className="text-secondary-text">April 7, 2023</p>
-                                            </div>
-                                        </div>
-                                        <LineChart
-                                            borderColor={"#713DFF"}
-                                            backgroundColorBottom={"rgba(0, 143, 255, 0)"}
-                                            backgroundColorTop={"rgba(0, 143, 255, 1)"}
-                                        />
-
-                                    </StyledChartCard>
                                 </div>
                             </div>
                         </Tab.Panel>
