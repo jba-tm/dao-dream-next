@@ -250,11 +250,11 @@ const StatsSection = ()=>{
 
                                     <div className="flex lg:hidden flex-wrap justify-center items-center gap-4">
                                         <button className="py-2 px-4 rounded-3xl bg-white text-black  hover:opacity-50 ease-linear duration-150 font-medium">
-                                            Enter App
+                                            Jetton Dream
                                         </button>
 
                                         <button className="hover:opacity-50 ease-linear duration-150">
-                                            Read newspaper
+                                            NFT Dream
                                         </button>
                                     </div>
 

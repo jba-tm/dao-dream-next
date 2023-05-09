@@ -159,7 +159,7 @@ const RoadmapSection = ()=>{
 
                     <div className="home__roadmap__rows lg:ml-auto">
                         <div className="home__roadmap__row">
-                            <div className="home__roadmap__col">Creation of a p2p exchange,</div>
+                            <div className="home__roadmap__col">Creation of a p2p exchange</div>
 
                             <div className="home__roadmap__col">
                                 Connecting analytics and artificial intelligence

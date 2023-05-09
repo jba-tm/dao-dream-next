@@ -272,7 +272,7 @@ const Voting = () => {
                                 <div className="pt-12">
                                     <StyledBadge className="mb-6">Ended</StyledBadge>
                                     <h1>
-                                        Proposal of TON Tokenomics <img style={{display: 'inline'}}
+                                    Decentralized Autonomous Organization DREAM on the TON blockchain <img style={{display: 'inline'}}
                                                                         src="/images/cirle-bird.png" width={90}
                                                                         height={90} alt=""/>
                                     </h1>
